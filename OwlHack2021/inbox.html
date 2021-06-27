@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <title>Empower</title>
+    </head>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #titleTextContainer {
+            font-weight: bold;
+            color: white;
+            font-size: 70px;
+            text-align: center;
+            background-color: #233131;
+        }
+
+        #addContainer {
+            text-align: right;
+        }
+
+        #add {
+            margin-top: 15px;
+            width: 200px;
+            font-size: 20px;
+            margin-left: 20px;
+            border: 2px solid black;
+        }
+
+        .singleContainer {
+            width: 1300px;
+            margin: auto;
+        }
+
+        .text-center {
+            padding-top: 20px;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: blue;
+        }
+
+        .btn-primary {
+            margin-right: 15px;
+        }
+
+        .card {
+            animation-name: none;
+            animation-duration: 0.3s;
+            animation-fill-mode: forwards;
+            position: relative;
+        }
+
+        @keyframes hide {
+            100% {opacity: 0; display: "none"}
+        }
+
+        @keyframes move {
+            0% {top: 0;}
+            100% {top: -490px;}
+        }
+
+        #emptyId {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+
+            display: none;
+        }
+
+    </style>
+    <script>
+        function hide(id){
+            var card = document.getElementById(id);
+            card.style.animationName = "hide";
+            if (id == "card1"){
+                setTimeout(move, 400);
+            } else {
+                card.style.top = "-490px";
+                setTimeout(empty, 600);
+            }
+        }
+
+        function move(){
+            var card = document.getElementById("card2")
+            card.style.animationName = "move";
+        }
+
+        function empty() {
+            document.getElementById("emptyId").style.display = "block";
+        }
+
+    </script>
+    <body>
+
+        <div class="container-fluid fixed-top" id="addContainer">
+            <button type="button" class="btn btn-success" id="add" onclick="window.location.href='signedin.php?_=_'">Return Home</button>
+            <button type="button" class="btn btn-success" id="add" onclick="window.location.href='inbox.html'">Inbox</button>
+            <button type="button" class="btn btn-success" id="add" onclick="window.location.href='add.php'">Add a Card</button>
+        </div>
+
+        <div style="height: 50px;"></div>
+        <div class="container-fluid p-0" id="titleTextContainer">
+            Inbox
+        </div>
+
+        <div id="emptyId">Your inbox is empty.</div>
+
+        <div id="mainContainer" class="container-fluid">
+            <div class='card text-center' id="card1">
+                <div class='card-header'>
+                    Help Request Based on Your Skills 
+                </div>
+                <div class='card-body'>
+                    <h5 class='card-title'>Homework Help</h5>
+                    <p class='card-text'>My son, Nick Tjoa, needs help with his chemistry homework. He is learning about hydrogen bonding and is very confused. Any help would be very much appreciated.</p>
+                    <p class='card-text'>Karen Yeager<br>yeagerist@gmail.com<br><br>June 28, 2021 | 3:00 pm<br>8984 Blackburn St. Waterloo</p>
+                    <p class='card-text'><i>Skills</i>: <span class="highlight">chemistry</span>, math, tutoring</p>
+                    <p class='card-text'><i>Reward</i>: $100</p>
+                    <a href='#' onclick='hide("card1")' class='btn btn-primary'>Accept</a> <a href='#' onclick='hide("card1")' class='btn btn-danger'>Decline</a>
+                </div>
+                <div class='card-footer text-muted'>
+                    Just now
+                </div>
+            </div>
+
+            <div class='card text-center' id="card2">
+                <div class='card-header'>
+                    Pending Task Offer
+                </div>
+                <div class='card-body'>
+                    <h5 class='card-title'>Party Decorating</h5>
+                    <p class='card-text'><b>Rex Callaway</b> wants to help you with <br><i style='color: #707070'>"My younger brother Johnny’s 5th birthday is soon, and I need help decorating my house for his birthday party. There will be lots of balloons, candy, and confetti!"</i></p>
+                    <p class='card-text'>June 28, 2021 | 3:00 pm</p>
+                    <p class='card-text'><i>Rex Callaway's Skills:<br></i>baking, playing music, <span class="highlight">party decorating</span>, dancing</p>
+                    <a href='#' onclick='hide("card2")' class='btn btn-primary'>Accept</a> <a href='#' onclick='hide("card2")' class='btn btn-danger'>Decline</a>
+                </div>
+                <div class='card-footer text-muted'>
+                    Just now
+                </div>
+            </div>
+        </div>
+
+        
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+    </html>
